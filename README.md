@@ -33,5 +33,19 @@ nix-shell '<home-manager>' -A install
 home-manager switch --flake ~/Repos/cherryzita
 ```
 
+## To use fish as default shell
+
+Add this line to your `/etc/shells`
+
+```sh
+/Users/cherryramatis/.nix-profile/bin/fish
+```
+
+Run this
+
+```sh
+chsh -s ~/.nix-profile/bin/fish
+```
+
 References:
 <https://www.bekk.christmas/post/2021/16/dotfiles-with-nix-and-home-manager>
