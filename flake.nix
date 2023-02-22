@@ -23,6 +23,7 @@
         modules = [
           ./modules/home.nix
           ./modules/git.nix
+          ./modules/tmux.nix
           # ./modules/fish.nix
         ];
 
