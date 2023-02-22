@@ -15,6 +15,7 @@
     '';
     shellAliases = {
       "e" = "exit";
+      "c" = "clear";
       "sync" = "stow . -t ~/";
       "chmox" = "chmod +x";
       "lg" = "lazygit";
