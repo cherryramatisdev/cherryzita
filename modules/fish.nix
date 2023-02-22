@@ -29,7 +29,6 @@
       "ba" = "bundle add";
       "depupdate" = "yarn upgrade-interactive --latest";
       "gst" = "git status";
-      "ga" = "git add";
       "gc" = "git commit --verbose";
     };
     plugins = [
