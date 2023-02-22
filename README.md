@@ -16,8 +16,22 @@ sh <(curl -L https://nixos.org/nix/install)
 gh repo clone cherryzita ~/Repos/cherryzita
 ```
 
-3. Run the flake for the *first time*
+3. Install `home-manager`
 
 ```sh
-nix build --no-link ~/Repos/cherryzita#homeConfigurations.cherryramatis.activationPackage
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
 ```
+
+```
+nix-shell '<home-manager>' -A install
+```
+
+3. Run the home-manaegr
+
+```sh
+home-manager switch --flake ~/Repos/cherryzita
+```
+
+References:
+<https://www.bekk.christmas/post/2021/16/dotfiles-with-nix-and-home-manager>

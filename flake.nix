@@ -22,6 +22,7 @@
         # the path to your home.nix.
         modules = [
           ./modules/home.nix
+          ./modules/git.nix
         ];
 
         # Optionally use extraSpecialArgs
