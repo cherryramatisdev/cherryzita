@@ -9,5 +9,7 @@
     curl
     fzf
     ripgrep
+    cmake
+    neovim-unwrapped # TODO: Config neovim from nix itself
   ];
 }
