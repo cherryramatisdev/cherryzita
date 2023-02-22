@@ -11,5 +11,13 @@
     ripgrep
     cmake
     neovim-unwrapped # TODO: Config neovim from nix itself
+    lazygit
+    gh
+    rbenv
+    go
+    nodejs-18_x
+    elixir_1_14
+    jq
+    fd
   ];
 }
