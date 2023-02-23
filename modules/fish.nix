@@ -1,9 +1,10 @@
-{ pkgs, ... }: {
-  programs.fish = {
-    enable = true;
-    shellInit = ''
-      set -x PATH $PATH /usr/local/bin/ /opt/homebrew/sbin/ /opt/homebrew/bin/ /Users/cherryramatis/.nix-profile/bin /nix/var/nix/profiles/default/bin/ /Users/cherryramatis/Scripts/ /opt/homebrew/opt/postgresql@15/bin
-      set -x NVM_DIR $HOME/.nvm /Users/cherryramatis/Library/pnpm ~/.npm-global/bin
+{ pkgs, ... }:
+let
+  base = ''
+      set -x PATH $PATH /usr/local/bin/ /opt/homebrew/sbin/ /opt/homebrew/bin/ /Users/cherryramatis/.nix-profile/bin /nix/var/nix/profiles/default/bin/ /Users/cherryramatis/Scripts/ 
+      set -x PATH /Users/cherryramatis/.rbenv/shims $PATH
+      set -x PATH /Users/cherryramatis/.npm-global/bin $PATH
+      set -x NVM_DIR $HOME/.nvm /Users/cherryramatis/Library/pnpm
       set -x FZF_DEFAULT_COMMAND "rg --files --hidden --follow --glob '!.git'"
       set -x EDITOR nvim
       set -x VISUAL nvim
@@ -12,7 +13,29 @@
       fish_vi_key_bindings
       # fish_config theme choose "Rosé Pine Moon"
       set HISTCONTROL ignoreboth # ignore commands with initial space and duplicates
-    '';
+      set -gx RBENV_SHELL fish
+      command rbenv rehash 2>/dev/null
+
+      fish_add_path /opt/homebrew/opt/postgresql@13/bin
+
+      set -gx LDFLAGS "-L/opt/homebrew/opt/postgresql@13/lib"
+      set -gx CPPFLAGS "-I/opt/homebrew/opt/postgresql@13/include"
+      set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/postgresql@13/lib/pkgconfig"
+  '';
+
+  functions = ''
+    function rbenv
+      set command $argv[1]
+      set -e argv[1]
+
+      command rbenv "$command" $argv
+    end
+  '';
+in
+{
+  programs.fish = {
+    enable = true;
+    shellInit = (base + functions);
     shellAliases = {
       "e" = "exit";
       "c" = "clear";
