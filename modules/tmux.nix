@@ -11,6 +11,7 @@
 
     plugins = with pkgs; [
       tmuxPlugins.tmux-thumbs
+      tmuxPlugins.tmux-fzf
     ];
 
     extraConfig = ''
