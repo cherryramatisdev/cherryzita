@@ -19,5 +19,7 @@
     elixir_1_14
     jq
     fd
+    nnn
+    helix
   ];
 }

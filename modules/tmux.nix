@@ -41,6 +41,9 @@
       bind -n M-C-j resize-pane -D 5
       bind -n M-C-k resize-pane -U 5
       bind -n M-C-l resize-pane -R 5
+
+      # Open terminal on current path
+      bind -n M-t display-popup -E -w 90% -h 90% -d '#{pane_current_path}' "fish"
       '';
   };
 }
