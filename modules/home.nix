@@ -20,6 +20,6 @@
     jq
     fd
     nnn
-    helix
+    toot
   ];
 }

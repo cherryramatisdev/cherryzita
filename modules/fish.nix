@@ -8,9 +8,9 @@ let
       set -x NODE_OPTIONS --openssl-legacy-provider
       set -x NVM_DIR $HOME/.nvm /Users/cherryramatis/Library/pnpm
       set -x FZF_DEFAULT_COMMAND "rg --files --hidden --follow --glob '!.git'"
-      set -x EDITOR hx
-      set -x VISUAL hx
-      set -x GIT_EDITOR hx
+      set -x EDITOR nvim
+      set -x VISUAL nvim
+      set -x GIT_EDITOR nvim
       set fish_greeting # supress fish initial greeting
       fish_vi_key_bindings
       # fish_config theme choose "Rosé Pine Moon"
